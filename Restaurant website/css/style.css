@@ -1,0 +1,255 @@
+/*
+  Oh Hello!
+
+  These are some base styles so that our tutorial looks good.
+
+  Let's go through the important bits real quick
+*/
+:root {
+  --yellow: #ffc600;
+  --black: #272727;
+}
+
+html {
+  /* border-box box model allows us to add padding and border to our elements without increasing their size */
+  box-sizing: border-box;
+  /* A system font stack so things load nice and quick! */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 900;
+  font-size: 10px;
+  color: var(--black);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+}
+
+/*
+  WAT IS THIS?!
+  We inherit box-sizing: border-box; from our <html> selector
+  Apparently this is a bit better than applying box-sizing: border-box; directly to the * selector
+*/
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-image: url("./images/topography.svg"),
+    linear-gradient(110deg, #f93d66, #6d47d9);
+  background-size: 340px, auto;
+  min-height: calc(100vh - 100px);
+  margin: 50px;
+  /* background: white; */
+  background-attachment: fixed;
+  letter-spacing: -1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 5px 0;
+}
+/* Each item in our grid will contain numbers */
+.item {
+  /* We center the contents of these items. You can also do this with flexbox too! */
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+  font-size: 35px;
+  background-color: var(--yellow); /* best colour */
+}
+
+.item p {
+  margin: 0 0 5px 0;
+}
+
+
+body {
+  font-size: 15px;
+}
+
+button {
+  background: #ffc600;
+  border: 0;
+  padding: 10px 20px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.top {
+  display: grid;
+  grid-template-areas:
+    "hero hero cta1"
+    "hero hero cta2";
+  grid-gap: 20px;
+}
+
+@media (max-width: 800px) {
+  .top {
+    grid-template-areas:
+      "hero hero"
+      "hero hero"
+      "cta1 cta2";
+  }
+}
+
+@media (max-width: 400px) {
+  .top {
+    grid-template-areas:
+      "hero"
+      "hero"
+      "cta1"
+      "cta2";
+  }
+}
+
+.hero {
+  grid-area: hero;
+  min-height: 400px;
+  background: white url(../image/taco.jpg);
+  background-size: cover;
+  background-position: bottom right;
+  padding: 40px;
+  display: grid;
+  align-content: center;
+  justify-items: left;
+}
+.hero > * {
+  background: #ffc600;
+  padding: 5px;
+}
+
+.cta {
+  background: #ffc600;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.cta p {
+  margin: 0;
+}
+.price {
+  font-weight: 200;
+  font-size: 50px;
+}
+.cta1 {
+  grid-area: cta1;
+}
+.cta2 {
+  grid-area: cta2;
+}
+
+.menu button {
+  margin: 10px;
+}
+
+.menu ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  transition: all 0.5s;
+}
+
+.menu ul.open {
+  max-height: 100px;
+  transform: translateX(0px);
+}
+
+.menu ul.close {
+  max-height: 0px;
+  transform: translateX(-9000px);
+}
+
+.menu a {
+  background: #ffc600;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  color: var(--black);
+  padding: 10px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.feature {
+  background: rgba(255, 255, 255, 0.2);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+}
+.feature h3 {
+  font-weight: 300;
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.feature p {
+  font-weight: 200;
+}
+.icon {
+  padding: 10px;
+  font-size: 30px;
+}
+
+.about {
+  background: rgba(255, 255, 255, 0.2);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.about img {
+  padding: 20px;
+}
+.about__details h2 {
+  font-weight: 300;
+  font-size: 30px;
+}
+.about__details p {
+  font-weight: 200;
+}
+.about__details button {
+  margin-bottom: 20px;
+}
+
+.gallery h2 {
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  font-weight: 300;
+  font-size: 30px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.gallery__images {
+  display: grid;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  align-items: center;
+  justify-items: center;
+}
+
